@@ -3,6 +3,7 @@
 - **Check `prompts/TASK.md`** before starting a new task. If the task isn’t listed, add it with a brief description and today's date.
 - **Use consistent naming conventions, file structure, and architecture patterns** as described in `prompts/PLANNING.md`.
 - **Use uv** (the virtual environment) whenever executing Python commands, including for unit tests.
+- **Keep requirements.txt current**.  The development environment should use uv, but the container needs `requirements.txt` for venv creation.  As such, `requirements.txt` should include all dependencies for **running the application**, not for dev, e.g. pytest and associated modules.
 
 ### 🧱 Code Structure & Modularity
 - **Never create a file longer than 500 lines of code.** If a file approaches this limit, refactor by splitting it into modules or helper files.
