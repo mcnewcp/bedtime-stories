@@ -12,6 +12,8 @@ A Streamlit application that generates personalized bedtime stories with AI-powe
 
 ## 🐳 Docker Deployment
 
+This project uses **uv** for fast Python package management and **pyproject.toml** for modern dependency management.
+
 ### Prerequisites
 
 - Docker and Docker Compose installed
@@ -29,11 +31,10 @@ A Streamlit application that generates personalized bedtime stories with AI-powe
    ```
 
 2. **Set up environment variables**:
-   Create a `.env` file in the project root:
-   ```env
-   ANTHROPIC_API_KEY=your_anthropic_api_key_here
-   OPENAI_API_KEY=your_openai_api_key_here
-   ELEVENLABS_API_KEY=your_elevenlabs_api_key_here
+   Copy `.env.example` to `.env` and add your API keys:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your actual API keys
    ```
 
 3. **Run with Docker Compose**:
@@ -62,17 +63,36 @@ docker-compose down
 
 ## 🛠️ Local Development
 
-1. **Install dependencies**:
+### Prerequisites
+
+1. **Install uv** (fast Python package manager):
    ```bash
-   pip install -r requirements.txt
+   # macOS/Linux
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   
+   # Windows
+   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
    ```
 
+### Setup
+
+1. **Create virtual environment and install dependencies**:
+   ```bash
+   uv venv
+   uv sync
+   ```
+   *Note: This will create a `uv.lock` file for reproducible installations*
+
 2. **Set up environment variables**:
-   Create a `.env` file with your API keys
+   Copy `.env.example` to `.env` and add your API keys:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your actual API keys
+   ```
 
 3. **Run the application**:
    ```bash
-   streamlit run app.py
+   uv run streamlit run app.py
    ```
 
 ## 📝 Usage
