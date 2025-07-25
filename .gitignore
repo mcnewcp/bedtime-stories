@@ -52,7 +52,8 @@ temp/
 tmp/
 
 # Claude-related files
-.claude/
+# I'm allowing claude files here so I can track prp commands
+# .claude/
 
 # Test files
 test_app.py
